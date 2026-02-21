@@ -6,7 +6,6 @@ import numpy as np
 
 app = FastAPI()
 
-# Enable CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -19,7 +18,7 @@ file_path = os.path.join(os.path.dirname(__file__), "../telemetry.json")
 with open(file_path) as f:
     telemetry = json.load(f)
 
-@app.post("/")   # 🔥 IMPORTANT FIX
+@app.post("/")   # IMPORTANT
 async def latency(request: Request):
     body = await request.json()
     regions = body.get("regions", [])
