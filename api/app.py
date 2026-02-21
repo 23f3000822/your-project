@@ -18,7 +18,7 @@ file_path = os.path.join(os.path.dirname(__file__), "../telemetry.json")
 with open(file_path) as f:
     telemetry = json.load(f)
 
-@app.post("/")   # IMPORTANT
+@app.post("/api/latency")   # IMPORTANT
 async def latency(request: Request):
     body = await request.json()
     regions = body.get("regions", [])
